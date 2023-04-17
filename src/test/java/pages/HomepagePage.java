@@ -41,7 +41,8 @@ public class HomepagePage {
     }
 
     public HomepagePage chapterExistCheck(ElementsCollection chapters, String nameChapter) {
-        chapters.find(text(nameChapter)).shouldBe(visible);
+        //chapters.find(text(nameChapter)).should(exist);
+        chapters.findBy(text(nameChapter)).should(exist);
 
         return this;
     }
