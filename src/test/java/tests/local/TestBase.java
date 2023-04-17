@@ -42,7 +42,7 @@ public class TestBase {
     void afterEach() {
         String deviceHost = System.getProperty("deviceHost");
 
-        Attach.pageSource();
+        //Attach.pageSource();
         closeWebDriver();
         if (deviceHost.equals("browserstack")) {
             Attach.addVideo(sessionId);

@@ -20,10 +20,10 @@ public class Attach {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
 
-    @Attachment(value = "{attachName}", type = "image/png")
-    public static byte[] screenshotAs(String attachName) {
-        return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
-    }
+   // @Attachment(value = "{attachName}", type = "image/png")
+   // public static byte[] screenshotAs(String attachName) {
+    //    return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
+  //  }
 
     @Attachment(value = "Video", type = "text/html", fileExtension = ".html")
     public static String addVideo(String sessionId) {

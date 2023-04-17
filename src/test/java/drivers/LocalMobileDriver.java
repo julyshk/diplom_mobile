@@ -29,14 +29,6 @@ import java.net.URL;
          }
      }
 
-    // public static URL getAppiumServerUrl() {
-       //  try {
-       //      return new URL("http://localhost:4723/wd/hub");
-        // } catch (MalformedURLException e) {
-         //    throw new RuntimeException(e);
-         //}
-     //}
-
      @Nonnull
      @Override
      public WebDriver createDriver(@Nonnull Capabilities capabilities) {
@@ -49,8 +41,8 @@ import java.net.URL;
                  .setDeviceName(emulatorConfig.deviceName())
                  .setPlatformVersion(emulatorConfig.platformVersion())
                  .setApp(getApk().getAbsolutePath())
-                 .setAppPackage(emulatorConfig.appPackage())
-                 .setAppActivity(emulatorConfig.appActivity());
+                 .setAppPackage(emulatorConfig.appPackage());
+                 //.setAppActivity(emulatorConfig.appActivity());
 
          return new AndroidDriver(getAppiumServerUrl(), options);
      }
