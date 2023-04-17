@@ -20,22 +20,22 @@ import java.net.URL;
 
  public class LocalMobileDriver implements WebDriverProvider {
 
-    // public static URL getAppiumServerUrl() {
-    //     EmulatorConfig emulatorConfig = ConfigFactory.create(EmulatorConfig.class);
-     //    try {
-       //      return new URL(emulatorConfig.appiumServer());
-       //  } catch (MalformedURLException e) {
-       //      throw new RuntimeException(e);
-       //  }
-    // }
-
      public static URL getAppiumServerUrl() {
+         EmulatorConfig emulatorConfig = ConfigFactory.create(EmulatorConfig.class);
          try {
-             return new URL("http://localhost:4723/wd/hub");
+             return new URL(emulatorConfig.appiumServer());
          } catch (MalformedURLException e) {
              throw new RuntimeException(e);
          }
      }
+
+    // public static URL getAppiumServerUrl() {
+       //  try {
+       //      return new URL("http://localhost:4723/wd/hub");
+        // } catch (MalformedURLException e) {
+         //    throw new RuntimeException(e);
+         //}
+     //}
 
      @Nonnull
      @Override

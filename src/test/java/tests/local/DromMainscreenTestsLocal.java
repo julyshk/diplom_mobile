@@ -10,11 +10,11 @@ import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.appium.java_client.AppiumBy.id;
 import static io.qameta.allure.Allure.step;
 
-public class SearchTestsLocal extends TestBase {
+public class DromMainscreenTestsLocal extends TestBase {
 
     @Test
     @Tag("emulator")
-    @Tag("real")
+    @Tag("browserstack")
     void checkChapters() {
         step("Закрыть экран авторизации", () ->
                 homepagePage.buttonClick(homepagePage.closeLoginScreenButton));
@@ -30,7 +30,7 @@ public class SearchTestsLocal extends TestBase {
 
     @Test
     @Tag("emulator")
-    @Tag("real")
+    @Tag("browserstack")
     void checkMenu() {
         step("Закрыть экран авторизации", () ->
                 homepagePage.buttonClick(homepagePage.closeLoginScreenButton));
@@ -56,7 +56,7 @@ public class SearchTestsLocal extends TestBase {
 
     @Test
     @Tag("emulator")
-    @Tag("real")
+    @Tag("browserstack")
     void checkAddPage() {
         step("Закрыть экран авторизации", () ->
                 homepagePage.buttonClick(homepagePage.closeLoginScreenButton));

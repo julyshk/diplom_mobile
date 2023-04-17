@@ -65,15 +65,9 @@ tasks.withType(Test) {
     }
 }
 
-task android(type: Test) {
+task browserstack(type: Test) {
     useJUnitPlatform {
-        includeTags 'android'
-    }
-}
-
-task ios(type: Test) {
-    useJUnitPlatform {
-        includeTags 'ios'
+        includeTags 'browserstack'
     }
 }
 
@@ -83,8 +77,4 @@ task emulator(type: Test) {
     }
 }
 
-task real(type: Test) {
-    useJUnitPlatform {
-        includeTags 'real'
-    }
-}
+

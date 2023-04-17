@@ -2,8 +2,8 @@ package tests.local;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
+import drivers.BrowserstackMobileDriver;
 import drivers.LocalMobileDriver;
-//import drivers.RealMobileDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -12,26 +12,23 @@ import org.junit.jupiter.api.BeforeEach;
 import pages.HomepagePage;
 
 import static com.codeborne.selenide.Selenide.*;
+import static io.restassured.RestAssured.sessionId;
 
 public class TestBase {
     public static HomepagePage homepagePage = new HomepagePage();
+    public static String deviceHost = System.getProperty("deviceHost");
 
     @BeforeAll
-    public static void setDriver(){
-        //String deviceHost = System.getProperty("deviceHost");
+    public static void setDriver() {
 
-        //switch (deviceHost) {
-          //  case "android":
-          //  case "ios":
-           //     Configuration.browser = BrowserstackMobileDriver.class.getName();
-            //    break;
-          //  case "emulator":
+        switch (deviceHost) {
+            case "emulator":
                 Configuration.browser = LocalMobileDriver.class.getName();
-           //     break;
-           // case "real":
-            //    Configuration.browser = RealMobileDriver.class.getName();
-             //   break;
-       // }
+                break;
+            case "browserstack":
+                Configuration.browser = BrowserstackMobileDriver.class.getName();
+                break;
+        }
         Configuration.browserSize = null;
     }
 
@@ -47,9 +44,8 @@ public class TestBase {
 
         Attach.pageSource();
         closeWebDriver();
-     //   if (deviceHost.equals("android")) {
-     //       Attach.addVideo(sessionId().toString());
-     //   } else if (deviceHost.equals("ios")) {
-     //       Attach.addVideo(sessionId().toString());
+        if (deviceHost.equals("browserstack")) {
+            Attach.addVideo(sessionId);
         }
     }
+}
