@@ -40,8 +40,7 @@ dependencies {
             'org.junit.jupiter:junit-jupiter-api:5.9.2',
             'org.junit.jupiter:junit-jupiter-params:5.9.2',
             'io.github.bonigarcia:webdrivermanager:5.2.1',
-            'commons-io:commons-io:2.11.0',
-            'org.aspectj:aspectjweaver:1.9.19'
+            'commons-io:commons-io:2.11.0'
     )
 }
 

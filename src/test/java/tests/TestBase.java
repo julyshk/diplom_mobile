@@ -13,7 +13,6 @@ import pages.HomepagePage;
 
 import static com.codeborne.selenide.Selenide.*;
 import static helpers.Attach.getSessionId;
-import static io.restassured.RestAssured.sessionId;
 
 public class TestBase {
     public static HomepagePage homepagePage = new HomepagePage();

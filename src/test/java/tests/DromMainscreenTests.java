@@ -3,7 +3,6 @@ package tests;
 import io.qameta.allure.Allure;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-
 import static io.qameta.allure.Allure.step;
 
 public class DromMainscreenTests extends TestBase {
