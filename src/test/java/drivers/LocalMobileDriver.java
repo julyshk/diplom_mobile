@@ -42,7 +42,6 @@ import java.net.URL;
                  .setPlatformVersion(emulatorConfig.platformVersion())
                  .setApp(getApk().getAbsolutePath())
                  .setAppPackage(emulatorConfig.appPackage());
-                 //.setAppActivity(emulatorConfig.appActivity());
 
          return new AndroidDriver(getAppiumServerUrl(), options);
      }

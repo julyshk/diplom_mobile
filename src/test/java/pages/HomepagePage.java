@@ -30,8 +30,8 @@ public class HomepagePage {
             elementCloseButton = $(id("ru.farpost.dromfilter:id/cancel_button"));
 
     public ElementsCollection
-            chapters = $$("[resource-id='ru.farpost.dromfilter:id/title']"),
-            submenu = $$("[resource-id='ru.farpost.dromfilter:id/main_text_view']");
+            chapters = $$(id("ru.farpost.dromfilter:id/title")),
+            submenu = $$(id("ru.farpost.dromfilter:id/main_text_view"));
 
     public HomepagePage buttonClick(SelenideElement buttonName) {
         buttonName.click();
