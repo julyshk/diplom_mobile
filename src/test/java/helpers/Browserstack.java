@@ -8,9 +8,8 @@ import static io.restassured.RestAssured.given;
 import static java.lang.String.format;
 
 public class Browserstack {
-    public static BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class);
-
     public static String getVideoUrl(String sessionId) {
+        BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class);
         String url = format("https://api.browserstack.com/app-automate/sessions/%s.json", sessionId);
 
         return given()
@@ -21,7 +20,7 @@ public class Browserstack {
                 .get(url)
                 .then()
                 .log().all()
-               // .statusCode(200)
+                .statusCode(200)
                 .extract().path("automation_session.video_url");
     }
 }

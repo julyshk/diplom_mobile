@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import pages.HomepagePage;
 
 import static com.codeborne.selenide.Selenide.*;
+import static helpers.Attach.getSessionId;
 import static io.restassured.RestAssured.sessionId;
 
 public class TestBase {
@@ -41,11 +42,14 @@ public class TestBase {
     @AfterEach
     void afterEach() {
         String deviceHost = System.getProperty("deviceHost");
+        String sessionId = getSessionId();
 
-        //Attach.pageSource();
+        Attach.pageSource();
         closeWebDriver();
-       // if (deviceHost.equals("browserstack")) {
-        //    Attach.addVideo(sessionId);
-       // }
+        //Attach.screenshotAs("Last screenshot");
+        if (deviceHost.equals("browserstack")) {
+            Attach.addVideo(sessionId);
+        }
+
     }
 }
