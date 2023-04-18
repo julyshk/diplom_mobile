@@ -1,4 +1,4 @@
-package tests.local;
+package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -44,8 +44,8 @@ public class TestBase {
 
         //Attach.pageSource();
         closeWebDriver();
-        if (deviceHost.equals("browserstack")) {
-            Attach.addVideo(sessionId);
-        }
+       // if (deviceHost.equals("browserstack")) {
+        //    Attach.addVideo(sessionId);
+       // }
     }
 }

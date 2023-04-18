@@ -29,7 +29,6 @@ public class HomepagePage {
             elementTrucksAndSpecialVehicles = $(id("ru.farpost.dromfilter:id/spec_section")),
             elementCloseButton = $(id("ru.farpost.dromfilter:id/cancel_button"));
 
-
     public ElementsCollection
             chapters = $$("[resource-id='ru.farpost.dromfilter:id/title']"),
             submenu = $$("[resource-id='ru.farpost.dromfilter:id/main_text_view']");
@@ -41,7 +40,6 @@ public class HomepagePage {
     }
 
     public HomepagePage chapterExistCheck(ElementsCollection chapters, String nameChapter) {
-        //chapters.find(text(nameChapter)).should(exist);
         chapters.findBy(text(nameChapter)).should(exist);
 
         return this;
