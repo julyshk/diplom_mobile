@@ -54,24 +54,17 @@ compileTestJava{
 tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform()
-
-    testLogging {
-        lifecycle {
-            events "started", "skipped", "failed", "standard_error", "standard_out"
-            exceptionFormat "short"
-        }
-    }
 }
 
 task browserstack(type: Test) {
     useJUnitPlatform {
-        includeTags 'browserstack'
+        includeTags 'mobile_browserstack'
     }
 }
 
 task emulator(type: Test) {
     useJUnitPlatform {
-        includeTags 'emulator'
+        includeTags 'mobile_emulator'
     }
 }
 

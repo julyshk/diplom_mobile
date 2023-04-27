@@ -9,23 +9,28 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
-import pages.HomepagePage;
+import pages.AddPagePage;
+import pages.MainscreenPage;
+import pages.MenuPage;
 
 import static com.codeborne.selenide.Selenide.*;
 import static helpers.Attach.getSessionId;
+import static helpers.Attach.pageSource;
 
 public class TestBase {
-    public static HomepagePage homepagePage = new HomepagePage();
+    public static MainscreenPage mainscreenPage = new MainscreenPage();
+    public static MenuPage menuPage = new MenuPage();
+    public static AddPagePage addPagePage = new AddPagePage();
     public static String deviceHost = System.getProperty("deviceHost");
 
     @BeforeAll
     public static void setDriver() {
 
         switch (deviceHost) {
-            case "emulator":
+            case "mobile_emulator":
                 Configuration.browser = LocalMobileDriver.class.getName();
                 break;
-            case "browserstack":
+            case "mobile_browserstack":
                 Configuration.browser = BrowserstackMobileDriver.class.getName();
                 break;
         }
@@ -42,13 +47,10 @@ public class TestBase {
     void afterEach() {
         String deviceHost = System.getProperty("deviceHost");
         String sessionId = getSessionId();
-
-        Attach.pageSource();
+      //  pageSource();
         closeWebDriver();
-        //Attach.screenshotAs("Last screenshot");
-        if (deviceHost.equals("browserstack")) {
-            Attach.addVideo(sessionId);
-        }
-
+       // if (deviceHost.equals("mobile_browserstack")) {
+       //     Attach.addVideo(sessionId);
+    //    }
     }
 }
